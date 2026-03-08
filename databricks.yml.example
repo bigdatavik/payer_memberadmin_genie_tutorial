@@ -1,6 +1,6 @@
 # Databricks Asset Bundle - Genie Room (Payer Member Administration)
 # Copy this file to databricks.yml and set your workspace host and CLI profile.
-# Deploy with: databricks bundle deploy --target staging
+# Deploy to dev or staging: databricks bundle deploy --target dev | databricks bundle deploy --target staging
 # Do not run the job from CI; run it manually in the workspace after deploy.
 
 bundle:
@@ -12,10 +12,19 @@ workspace:
 
 variables:
   environment:
-    description: "Environment (staging or dev)"
+    description: "Environment (dev or staging)"
     default: staging
 
 targets:
+  dev:
+    mode: development
+    variables:
+      environment: dev
+    workspace:
+      host: https://YOUR_WORKSPACE.cloud.databricks.com
+      profile: YOUR_CLI_PROFILE
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/dev
+
   staging:
     mode: development
     default: true
