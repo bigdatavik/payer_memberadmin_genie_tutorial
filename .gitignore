@@ -1,5 +1,6 @@
 .DS_Store
 .idea/
+.vscode/
 *.swp
 *.swo
 __pycache__/
@@ -12,3 +13,6 @@ GENIE_ROOM_PROMPT.md
 
 # Databricks config (contains your workspace host/profile) — use databricks.yml.example as template
 databricks.yml
+
+# PDF (local only; guide is in GENIE_ROOM_COMPLETE_GUIDE.md)
+GENIE_ROOM_COMPLETE_GUIDE.pdf
