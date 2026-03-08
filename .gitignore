@@ -6,3 +6,9 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Genie room prompt (local/sensitive)
+GENIE_ROOM_PROMPT.md
+
+# Databricks config (contains your workspace host/profile) — use databricks.yml.example as template
+databricks.yml
