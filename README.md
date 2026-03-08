@@ -2,7 +2,7 @@
 
 A **deploy-only** Genie Room setup for **Payer Member Administration** (enrollments, eligibility, admin events, utilization). Use the Databricks Asset Bundle to **deploy to staging**; the job is **not run** by the bundle. Run the notebook manually in the workspace, then complete the room using the included guide.
 
-**GitHub:** [bigdatavik/agent_channel_genie_memberadmin_tutorial](https://github.com/bigdatavik/agent_channel_genie_memberadmin_tutorial) (private)
+**GitHub:** [bigdatavik/payer_memberadmin_genie_tutorial](https://github.com/bigdatavik/payer_memberadmin_genie_tutorial) (private)
 
 ---
 
@@ -18,7 +18,7 @@ This repo uses **Databricks Asset Bundles (DABs)** to deploy the Genie setup job
    ```
 2. **Deploy to staging:**
    ```bash
-   cd /path/to/agent_channel_genie_memberadmin_tutorial
+   cd /path/to/payer_memberadmin_genie_tutorial
    databricks bundle deploy --target staging
    ```
    (Uses the profile from your `databricks.yml`.)
@@ -42,7 +42,7 @@ This repo uses **Databricks Asset Bundles (DABs)** to deploy the Genie setup job
 
 ## Quick start
 
-1. Clone: `git clone https://github.com/bigdatavik/agent_channel_genie_memberadmin_tutorial.git`
+1. Clone: `git clone https://github.com/bigdatavik/payer_memberadmin_genie_tutorial.git`
 2. Copy and configure: `cp databricks.yml.example databricks.yml` and set your workspace `host` and `profile` in `databricks.yml`.
 3. Deploy: `databricks bundle deploy --target staging` (job is **not** run).
 4. In Databricks, run the job **genie_memberadmin_setup_staging** (or the notebook) once.
