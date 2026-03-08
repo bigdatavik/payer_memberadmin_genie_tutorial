@@ -1,0 +1,42 @@
+# Databricks Asset Bundle - Genie Room (Payer Member Administration)
+# Deploy-only: use "databricks bundle deploy --target staging" to deploy the job.
+# Do not run the job from CI; run it manually in the workspace after deploy.
+
+bundle:
+  name: agent-channel-genie-memberadmin-tutorial
+
+workspace:
+  host: https://fevm-serverless-mwelio-humana.cloud.databricks.com
+  profile: fevm
+
+variables:
+  environment:
+    description: "Environment (staging or dev)"
+    default: staging
+
+targets:
+  staging:
+    mode: development
+    default: true
+    variables:
+      environment: staging
+    workspace:
+      host: https://fevm-serverless-mwelio-humana.cloud.databricks.com
+      profile: fevm
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/staging
+
+resources:
+  jobs:
+    genie_memberadmin_setup:
+      name: genie_memberadmin_setup_${var.environment}
+      description: "Genie Room - Payer Member Administration (deploy only; run manually)"
+      parameters:
+        - name: environment
+          default: ${var.environment}
+      tasks:
+        - task_key: run_genie_memberadmin_setup
+          notebook_task:
+            notebook_path: ./One_Notebook_Genie_Room_Setup.py
+            base_parameters:
+              environment: ${var.environment}
+          timeout_seconds: 900
